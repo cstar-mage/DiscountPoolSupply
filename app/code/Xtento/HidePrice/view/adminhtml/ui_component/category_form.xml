@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="xtento_hideprice_configuration">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Hide Price Configuration</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">100</item>
+            </item>
+        </argument>
+        <field name="hideprice_display_price">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Xtento\HidePrice\Model\Attribute\Source\Display</item>
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">100</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Display "Price"</item>
+                </item>
+            </argument>
+        </field>
+        <field name="hideprice_display_add_to_cart">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Xtento\HidePrice\Model\Attribute\Source\Display</item>
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">110</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Display "Add to Cart"</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>
+<!--
+/**
+ * Product:       Xtento_HidePrice (1.0.2)
+ * ID:            nwkgCoSUq+AYqPyK726YGWS2gaWLfPrdiRDDNmMBqtI=
+ * Packaged:      2018-01-24T17:02:31+00:00
+ * Last Modified: 2017-09-20T14:00:39+00:00
+ * File:          app/code/Xtento/HidePrice/view/adminhtml/ui_component/category_form.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

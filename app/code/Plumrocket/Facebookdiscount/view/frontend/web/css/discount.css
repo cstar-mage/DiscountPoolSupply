@@ -1,0 +1,150 @@
+/**
+* Plumrocket Inc.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the End-user License Agreement
+* that is available through the world-wide-web at this URL:
+* http://wiki.plumrocket.net/wiki/EULA
+* If you are unable to obtain it through the world-wide-web, please
+* send an email to support@plumrocket.com so we can send you a copy immediately.
+*
+* @package Plumrocket_Facebook_Discount
+* @copyright Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+* @license http://wiki.plumrocket.net/wiki/EULA End-user License Agreement
+*/
+
+.fb_discount_holder {
+    width: 100%;
+    max-width: 430px;
+    margin-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.fb_discount_holder * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bf-clear:before,
+.bf-clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fb-discount-wrapper {
+    background-color: #f6f6f6;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0,0,0,0.17);
+    overflow: hidden;
+}
+
+.fb-discount-wrapper table td {
+    border-collapse: collapse;
+}
+
+.fb-discount-wrapper .fbd_message {
+    background-color: #3b5997;
+    width: 300px;
+    background-image: url("../images/flogo.png");
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding: 20px 40px 20px 90px;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.fb-discount-wrapper .fbd_message:after {
+    display: block;
+    position: absolute;
+    height: auto;
+    border-left: 40px solid #3B5997;
+    content: "";
+    top: 0;
+    right: 0;
+    border-top: 60px solid #f5f5f5;
+    border-bottom: 60px solid #f5f5f5;
+}
+
+.fb-discount-wrapper .fbd_message .fb-discount-r1,
+.fb-discount-wrapper .fbd_message .fb-discount-r2,
+.fb-discount-wrapper .fbd_message .fb-discount-r3 {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    line-height: 23px;
+}
+
+.fb-discount-wrapper .fbd_message .fb-discount-r1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 23px;
+
+}
+
+.fb-discount-wrapper .fbd_message .fb-discount-r2 {
+    color: #ffdf7e;
+    font-weight: 700;
+    font-size: 23px;
+    margin-top: 3px;
+}
+
+.fb-discount-wrapper .fbd_message .fb-discount-r3 {
+    color: #ffdf7e;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.fb-discount-wrapper .fbd_message .fb-discount-order {
+    color: #93b0eb;
+}
+
+.fb-discount-wrapper .fbd_message_wrapper {
+    padding: 0 10px;
+    vertical-align: middle;
+}
+
+.fb-discount-wrapper .fb-like span,
+.fb-discount-wrapper .fb-like iframe {
+    width: auto!important;
+    position: static;
+    width: 100%!important;
+}
+
+.pluginConnectButtonLayoutRoot {width:auto;}
+
+@media only screen and ( max-width: 767px ) {
+	.fb_discount_holder{
+		margin: 0 auto 20px auto;
+	}
+}
+
+@media only screen and ( max-width: 480px ) {
+    .fb_discount_holder{
+    	max-width: 320px;
+    }
+    .fb-discount-wrapper .fbd_message {
+        padding-right: 20px;
+    }
+    .fb-discount-wrapper .fbd_message:after {
+        display: none;
+    }
+    .fb-discount-wrapper table,
+    .fb-discount-wrapper tbody,
+    .fb-discount-wrapper tr {
+        display: block;
+        width: 100%;
+    }
+    .fb-discount-wrapper table .fbd_message {
+        display: block;
+        width: 100%;
+    }
+    .fb-discount-wrapper .fbd_message_wrapper {
+        padding: 10px;
+        display: block;
+        width: 100%;
+    }
+}

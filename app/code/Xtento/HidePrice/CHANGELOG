@@ -1,0 +1,14 @@
+Xtento_HidePrice
+
+-------------
+  CHANGELOG
+-------------
+
+===== 1.0.0 =====
+ * Initial stable M2 release
+
+===== 1.0.1 =====
+ * Updated Xtento_XtCore to version 2.1
+
+===== 1.0.2 =====
+ * Fixed price not being hidden properly in Related / Upsell / Cross-Sell blocks

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+OUTPUT_FILE_CSS=theme-styles.css
+THEME_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+node-sass --source-map true --source-map-embed true --output-style compressed $THEME_PATH/web/scss/theme-styles.scss > $THEME_PATH/web/css/$OUTPUT_FILE_CSS

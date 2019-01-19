@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CyberSolutionsLLC. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+             <block class="CyberSolutionsLLC\RotateStock\Block\RotateStock" name="product.info.rotatestock"
+                    template="CyberSolutionsLLC_RotateStock::product/view/rotatestock.phtml" before="alert.urls"/>
+        </referenceContainer>
+    </body>
+</page>

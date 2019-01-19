@@ -1,0 +1,35 @@
+/**
+ * Main Styles
+ */
+
+.footer-middle {
+	.block.newsletter {
+		input {
+			color: #fff;
+			border-bottom: solid 1px #cccccc;
+			padding: 1rem;
+		}
+		.action.subscribe {
+			border-bottom: solid 1px #cccccc;
+
+			span {
+				color: #000;
+			}
+		}
+	}
+}
+
+.cms-privacy-policy {
+	h2 {
+		padding-top: 40px;
+    	margin-top: -40px;
+	}
+}
+
+body.searchautocomplete__active .block-search {
+	width: 450px;
+}
+
+.owl-bottom-narrow .owl-controls {
+	position: relative;
+}

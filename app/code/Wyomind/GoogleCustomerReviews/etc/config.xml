@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Core/etc/config.xsd">
+    <default>
+        <googlecustomerreviews>
+            <license>
+                <extension_label><![CDATA[Google Customer Reviews<br/><div style='font-weight:normal;font-size:0.8em;display:inline-block'>(previously Google Trusted Stores)</div>]]></extension_label>
+                <extension_version>3.3.0.3</extension_version>
+                <extension_code>gts</extension_code>
+                <get_online_license>1</get_online_license>
+            <activation_key>GFF3H04UK93KECJYJ</activation_key></license>
+            <program>
+                <program>gcr</program>
+            </program>
+            <badge>
+                <gts_country>en_US</gts_country>
+                <gts_product_id>id</gts_product_id>
+                <gcr_lang>en_US</gcr_lang>
+                <position>BOTTOM_RIGHT</position>
+                <css><![CDATA[left:0px;
+                    top:0px;
+                    position:absolute;]]></css>
+            </badge>
+            <orders>
+                <use_edd_module>0</use_edd_module>
+                <eta>0</eta>
+                <gts_eta_ship>0</gts_eta_ship>
+                <gcr_optin_style>CENTER_DIALOG</gcr_optin_style>
+            </orders>
+        </googlecustomerreviews>
+    </default>
+</config>

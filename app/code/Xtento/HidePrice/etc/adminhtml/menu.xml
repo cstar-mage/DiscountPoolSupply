@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Xtento_HidePrice::configuration" title="Hide Price &amp; Call for Price" module="Xtento_HidePrice" sortOrder="129" parent="Xtento_XtCore::extensions" action="adminhtml/system_config/edit/section/hideprice" resource="Xtento_HidePrice::configuration"/>
+    </menu>
+</config>
+<!--
+/**
+ * Product:       Xtento_HidePrice (1.0.2)
+ * ID:            nwkgCoSUq+AYqPyK726YGWS2gaWLfPrdiRDDNmMBqtI=
+ * Packaged:      2018-01-24T17:02:31+00:00
+ * Last Modified: 2017-09-04T15:22:59+00:00
+ * File:          app/code/Xtento/HidePrice/etc/adminhtml/menu.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="hideprice" translate="label" sortOrder="129" showInDefault="1" showInStore="1" showInWebsite="1">
+            <tab>xtento</tab>
+            <label>Hide Price &amp; Call for Price</label>
+            <resource>Xtento_HidePrice::configuration</resource>
+            <group id="general" translate="label" showInDefault="1" showInWebsite="0" showInStore="0" sortOrder="10">
+                <label>Extension Configuration</label>
+                <attribute type="expanded">1</attribute>
+                <frontend_model>Xtento\XtCore\Block\System\Config\Form\Xtento\Module</frontend_model>
+                <fieldset_css>Xtento_HidePrice|Xtento\HidePrice\Model\System\Config\Backend\Server</fieldset_css>
+                <comment>
+                    <![CDATA[
+                    <script>
+                    requirejs(['jquery', 'prototype'], function() {
+                        function setCommentHtml(message) {
+                            if (Prototype.Browser.IE) {
+                                $('hideprice_general_serial').next('p').outerHTML = message;
+                            } else {
+                                $('hideprice_general_serial').next('p').innerHTML = message;
+                            }
+                        }
+
+                        function initSystemConfiguration() {
+                            if ($('hideprice_general_server_name')) {
+                                $('hideprice_general_server_name').style.backgroundColor='#f0f0f0';
+                                $('hideprice_general_server_name').disable();
+                                if ($('row_hideprice_general_server')) {
+                                    $('row_hideprice_general_server').hide();
+                                }
+                            }
+
+                            if ($('hideprice_general_serial') && $('hideprice_general_serial').value !== '' && $('hideprice_general_server') && $('hideprice_general_server').value !== '') {
+                                if ($('hideprice_general_serial').value.length !== 40) {
+                                    setCommentHtml('<a href="http://www.xtento.com" target="_blank"><img src="//www.xtento.com/license/check/?d='+$('hideprice_general_server').value+'" border="0" style="margin-top: 4px;"/></a>');
+                                } else {
+                                    if (typeof $('hideprice_general_serial').nextSibling !== 'undefined' && typeof $('hideprice_general_serial').nextSibling.nextSibling !== 'undefined') {
+                                        setCommentHtml('<a href="http://www.xtento.com" target="_blank"><img src="//www.xtento.com/license/check/?d='+$('hideprice_general_server').value+'" border="0" style="margin-top: 4px;"/></a>');
+                                    }
+                                }
+                            } else {
+                                if ($('hideprice_general_server').value !== '') {
+                                    setCommentHtml('<a href="http://www.xtento.com" target="_blank"><img src="//www.xtento.com/license/check/?d='+$('hideprice_general_server').value+'" border="0" style="margin-top: 4px;"/></a>');
+                                }
+                            }
+                        }
+                        jQuery(document).ready(function () {
+                            initSystemConfiguration();
+                        });
+                    });
+                    </script>
+                    ]]>
+                </comment>
+                <field id="heading" translate="label" sortOrder="10" showInDefault="1">
+                    <label>General Configuration</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="server_name" translate="label" sortOrder="20" showInDefault="1">
+                    <label>Server Name</label>
+                    <frontend_model>Xtento\XtCore\Block\System\Config\Form\Xtento\Servername</frontend_model>
+                </field>
+                <field id="serial" translate="label" sortOrder="30" showInDefault="1">
+                    <label>License Key</label>
+                    <comment>Please enter your license key here.</comment>
+                    <backend_model>Xtento\XtCore\Model\System\Config\Backend\License</backend_model>
+                </field>
+                <field id="enabled" translate="label" type="select" sortOrder="40" showInDefault="1">
+                    <label>Module Enabled</label>
+                    <comment>A valid license key is required in order to enable the module.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="server" translate="label" type="hidden" sortOrder="50" showInDefault="1">
+                    <label/>
+                    <backend_model>Xtento\HidePrice\Model\System\Config\Backend\Server</backend_model>
+                </field>
+            </group>
+            <group id="website_config" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                <label>Website Settings</label>
+                <attribute type="expanded">1</attribute>
+                <field id="disable_customer" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, the register / sign in links will be removed and no login/registration will be possible. This can only be enabled if "Disable Checkout" is enabled as well, otherwise customer could still sign up in the checkout.</comment>
+                </field>
+                <field id="disable_shopping_cart" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Shopping Cart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, the shopping cart icon / references / links will be removed. No checkout will be possible. All "Add to Cart" buttons will be removed.</comment>
+                </field>
+                <field id="disable_checkout" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, the checkout will be disabled. No checkout will be possible.</comment>
+                </field>
+            </group>
+            <group id="apply_to_config" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="45">
+                <label>Category / Product Settings</label>
+                <attribute type="expanded">1</attribute>
+                <comment>Configure conditions under which elements configured at "Price Display" (see below) should be hidden.</comment>
+                <field id="customer_group" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide for Customer Group(s)</label>
+                    <source_model>Xtento\HidePrice\Model\System\Config\Source\CustomerGroup</source_model>
+                    <comment>Hide price / ... for selected customer groups; except if "Show" price is selected in product/category</comment>
+                </field>
+                <field id="category" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide for Category(s)</label>
+                    <source_model>Xtento\HidePrice\Model\System\Config\Source\Category</source_model>
+                    <comment>Hide price / ... for selected categories; except if "Show" price is selected in product/category</comment>
+                </field>
+            </group>
+            <group id="display_config" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+                <label>Display/Frontend Settings</label>
+                <attribute type="expanded">1</attribute>
+                <comment>Below settings only apply to categories/products selected in "Category / Product Setings" section above, or for categories/products where hide price is explicitly enabled.</comment>
+                <field id="hide_price" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide "Price"</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, for matching products, the price will be hidden in the frontend.</comment>
+                </field>
+                <field id="hide_add_to_cart" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide "Add to Cart"</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, for matching products, the add to cart form will be hidden in the frontend.</comment>
+                </field>
+                <field id="hide_wishlist" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide "Wishlist" button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, for matching products, the wishlist button will be hidden in the frontend.</comment>
+                </field>
+                <field id="hide_compare" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide "Compare" button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, for matching products, the compare button will be hidden in the frontend.</comment>
+                </field>
+                <field id="frontend_heading1" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frontend Settings - Add to Cart</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="replace_add_to_cart" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Replace "Add to Cart"</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to no, "Add to Cart" will simply be hidden. If enabled, a button/link can be configured that will show up instead.</comment>
+                </field>
+                <field id="button_add_to_cart_text" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Add to Cart" Button: Text</label>
+                    <comment>Button Text. Example: Contact Us</comment>
+                    <depends>
+                        <field id="replace_add_to_cart">1</field>
+                    </depends>
+                </field>
+                <field id="button_add_to_cart_image" translate="label comment" type="image" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Add to Cart" Button: Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">sales/store</upload_dir>
+                    <base_url type="media" scope_info="1">sales/store</base_url>
+                    <comment>
+                        <![CDATA[Instead of a button, this image will be shown. Optional. Make sure to upload in correct size, button will show up in image size. (Or define size via custom CSS)]]>
+                    </comment>
+                    <depends>
+                        <field id="replace_add_to_cart">1</field>
+                    </depends>
+                </field>
+                <field id="button_add_to_cart_link" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Add to Cart" Button: Link</label>
+                    <comment>Link of the button. Link to your contacts page for example, or open an email client like this: mailto:email@store.com</comment>
+                    <depends>
+                        <field id="replace_add_to_cart">1</field>
+                    </depends>
+                </field>
+                <field id="button_add_to_cart_target" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Add to Cart" Button: Link Target</label>
+                    <source_model>Xtento\HidePrice\Model\System\Config\Source\LinkTarget</source_model>
+                    <depends>
+                        <field id="replace_add_to_cart">1</field>
+                    </depends>
+                </field>
+                <field id="button_add_to_cart_css" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Add to Cart" Button: Custom CSS</label>
+                    <comment>Custom CSS to be output in the "style" tag of the button ("a" element). Useful for developers to customize button appearance.</comment>
+                    <depends>
+                        <field id="replace_add_to_cart">1</field>
+                    </depends>
+                </field>
+                <field id="frontend_heading2" translate="label" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frontend Settings - Price</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="replace_price" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Replace "Price"</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to no, the product price will simply be hidden. If enabled, a button/link can be configured that will show up instead.</comment>
+                </field>
+                <field id="button_price_text" translate="label" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Price": Text</label>
+                    <comment>Button Text. Example: Call for Price</comment>
+                    <depends>
+                        <field id="replace_price">1</field>
+                    </depends>
+                </field>
+                <field id="button_price_image" translate="label comment" type="image" sortOrder="215" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Price": Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">sales/store</upload_dir>
+                    <base_url type="media" scope_info="1">sales/store</base_url>
+                    <comment>
+                        <![CDATA[Instead of a button, this image will be shown. Optional. Make sure to upload in correct size, button will show up in image size. (Or define size via custom CSS)]]>
+                    </comment>
+                    <depends>
+                        <field id="replace_price">1</field>
+                    </depends>
+                </field>
+                <field id="button_price_link" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Price": Link</label>
+                    <comment>Link of the button. Link to your contacts page for example, or open an email client like this: mailto:email@store.com</comment>
+                    <depends>
+                        <field id="replace_price">1</field>
+                    </depends>
+                </field>
+                <field id="button_price_target" translate="label" type="select" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Price": Link Target</label>
+                    <source_model>Xtento\HidePrice\Model\System\Config\Source\LinkTarget</source_model>
+                    <depends>
+                        <field id="replace_price">1</field>
+                    </depends>
+                </field>
+                <field id="button_price_css" translate="label" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Price": Custom CSS</label>
+                    <comment>Custom CSS to be output in the "style" tag of the button ("a" element). Useful for developers to customize button appearance.</comment>
+                    <depends>
+                        <field id="replace_price">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="dev_config" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+                <label>Developer Settings</label>
+                <attribute type="expanded">0</attribute>
+                <comment>The following settings may only be changed by developers / XTENTO support and if you are using a custom template that uses non-standard class names for the add to cart form, etc. Otherwise the default settings can be used.</comment>
+                <field id="selector_listing_add_to_cart" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Selector: "Product Listing > Add To Cart"</label>
+                </field>
+                <field id="selector_listing_add_to_links" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Selector: "Product Listing > Add To Wishlist/Compare" Buttons</label>
+                </field>
+                <field id="selector_listing_wishlist" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Selector: "Product Listing > Add To Wishlist" Button</label>
+                </field>
+                <field id="selector_listing_compare" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Selector: "Product Listing > Add To Compare" Button</label>
+                </field>
+                <field id="block_product_add_to_cart" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Name: "Product View > Add To Cart"</label>
+                </field>
+                <field id="block_product_add_to_wishlist" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Name: "Product View > Add To Wishlist" Button</label>
+                </field>
+                <field id="block_product_add_to_compare" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Name: "Product View > Add To Compare" Button</label>
+                </field>
+                <field id="block_product_price" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Names: "Product View > Price"</label>
+                    <comment>Multiple blocks are separated by comma.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+<!--
+/**
+ * Product:       Xtento_HidePrice (1.0.2)
+ * ID:            nwkgCoSUq+AYqPyK726YGWS2gaWLfPrdiRDDNmMBqtI=
+ * Packaged:      2018-01-24T17:02:31+00:00
+ * Last Modified: 2017-10-01T13:54:01+00:00
+ * File:          app/code/Xtento/HidePrice/etc/adminhtml/system.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

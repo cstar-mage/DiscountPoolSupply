@@ -1,0 +1,18 @@
+<?php
+$data = [
+    "Country is empty" => __("Country is empty"),
+    "Google Trusted Stores account id is empty" => __("Google Trusted Stores account id is empty"),
+    "Google Trusted Badge will be displayed<br/>here" => __("Google Trusted Badge will be displayed<br/>here"),
+    "Google Trusted Stores badge can't be found!" => __("Google Trusted Stores badge can't be found!"),
+    "Google Trusted Stores badge implemented!" => __("Google Trusted Stores badge implemented!"),
+    "Google Trusted Stores badge implemented but some errors have been found!" => __("Google Trusted Stores badge implemented but some errors have been found!"),
+    "Google Trusted Stores confirmation module can't be found!" => __("Google Trusted Stores confirmation module can't be found!"),
+    "Google Trusted Stores confirmation module implemented!" => __("Google Trusted Stores confirmation module implemented!"),
+    "Google Trusted Stores doesn't seem to be implemented!" => __("Google Trusted Stores doesn't seem to be implemented!"),
+];
+?>
+<script>
+require(["jquery","mage/translate"], function($){
+    $.mage.translate.add(<?php echo Zend_Json::encode($data) ?>);
+});
+</script>

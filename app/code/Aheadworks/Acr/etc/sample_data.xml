@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="sample_data.xsd">
+    <rule>
+        <name>Abandoned cart</name>
+        <subject>Your cart is waiting at {{var store.name}}!</subject>
+        <content><![CDATA[{{template config_path="design/email/header_template"}}
+<h3 style="color:#073763;">Hi {{var customer.firstname}},</h3>
+<p>We can see that the cart you’ve left at our store is still awaiting your decision, so we decided to try and tip the scale in our favor. Coupon code below provides you with an attractive discount on cart items, but only if used within the next 24 hours!</p>
+<p><strong style="text-transform: uppercase;">Coupon code:</strong> {{var coupon.code}}</p>
+<p><strong style="text-transform: uppercase;">Cart items:</strong></p>
+<ul>
+{{for item in quote.getAllVisibleItems()}}
+<li>{{var item.qty}} x <a href="{{store url="catalog/product/view" id="$item.product_id"}}">{{var item.name}}</a></li>
+{{/for}}
+</ul>
+<p><strong style="text-transform: uppercase;">Cart subtotal:</strong> {{var quote.subtotal|formatPrice}}</p>
+<p>Follow this link to complete the purchase: <a href="{{store url=""}}/">{{var store.name}}</a></p>
+<p>Hurry up!</p>
+{{template config_path="design/email/footer_template"}}]]>
+        </content>
+        <email_send_days>0</email_send_days>
+        <email_send_hours>0</email_send_hours>
+        <email_send_minutes>30</email_send_minutes>
+    </rule>
+</config>

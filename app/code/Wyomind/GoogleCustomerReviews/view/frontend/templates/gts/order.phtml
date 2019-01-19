@@ -1,0 +1,57 @@
+<?php
+if ($block->isFrontendTest()) :
+    ?>
+<script language="javascript" language="text/javascript"  >
+    if (typeof GtsValidator != 'undefined')
+        GtsValidator.order = true;
+</script>
+    <?php
+endif;
+
+
+if ($block->error !== false) :
+    ?>
+    <?php echo $block->error; ?>
+    <?php
+elseif ($block->getOrder()) :
+    ?>
+<div id="gts-order" style="display:none;" translate="no">
+    <span id="gts-o-id"><?php echo $block->getOrder()->getIncrementId(); ?></span>
+    <span id="gts-o-domain"><?php echo $block->getDomain(); ?></span>
+    <span id="gts-o-email"><?php echo $block->getEmail(); ?></span>
+    <span id="gts-o-country"><?php echo $block->getCountry(); ?></span>
+    <span id="gts-o-currency"><?php echo $block->getCurrencyCode(); ?></span>
+    <span id="gts-o-total"><?php echo $block->getOrderTotal(); ?></span>
+    <span id="gts-o-discounts"><?php echo $block->getOrderDiscount(); ?></span>
+    <span id="gts-o-shipping-total"><?php echo $block->getOrderShipping(); ?></span>
+    <span id="gts-o-tax-total"><?php echo $block->getOrderTax(); ?></span>
+    <span id="gts-o-est-ship-date"><?php echo $block->getShipdate(); ?></span>
+    <span id="gts-o-est-delivery-date"><?php echo $block->getDeliveryDate(); ?></span>
+    <span id="gts-o-has-preorder"><?php echo $block->getHasPreorder(); ?></span>
+    <span id="gts-o-has-digital"><?php echo $block->getHasDigital(); ?></span>
+    <?php 
+    foreach ($block->getItems() as $k => $item) :
+        ?>
+        <span class="gts-item">
+            <span class="gts-i-name"><?php echo $item['name'] ?></span>
+            <span class="gts-i-price"><?php echo $item['price'] ?></span>
+            <span class="gts-i-quantity"><?php echo $item['qty_ordered'] ?></span>
+            <?php
+            if (isset($item['google_shopping'])) :
+                ?>
+                <span class="gts-i-prodsearch-id"><?php echo $item['google_shopping']['gbase_id'] ?></span>
+                <span class="gts-i-prodsearch-store-id"><?php echo $item['google_shopping']['gbase_account_id'] ?></span>
+                <span class="gts-i-prodsearch-country"><?php echo $item['google_shopping']['gbase_country'] ?></span>
+                <span class="gts-i-prodsearch-language"><?php $tmp = explode('_', $item['google_shopping']['gbase_language']);
+                echo $tmp[0];
+                ?></span>
+                <?php
+            endif;
+            ?>
+        </span>
+        <?php
+    endforeach;
+    ?>
+</div>
+    <?php
+endif;

@@ -1,0 +1,79 @@
+
+"./Block/Order.php",""
+
+"Unable to load the order","Impossible de charger la commande"
+
+"./Block/Badge.php",""
+
+"The product doesn't exist","Le produit n'existe pas"
+
+"./Block/Adminhtml/System/Config/Form/Field/TestBadgeLink.php",""
+
+"Go","Tester"
+"Product sku","Identifiant produit"
+
+
+"./Block/Adminhtml/System/Config/Form/Field/TestOrderLink.php",""
+
+"Go","Tester"
+"Order number","Numéro de Commande"
+
+
+"./Controller/Devtools/Testbadge.php",""
+
+"No product to load","Aucun produit à charger"
+
+
+"./Controller/Devtools/Testorder.php",""
+
+"No order to load","Aucune commande à charger"
+
+
+"./Model/Config/Source/UseEDD.php",""
+
+"No","Non"
+"Yes","Oui"
+
+
+"./view/frontend/web/js/validator.js",""
+
+"Country is empty","Le pays est vide"
+"Google Trusted Badge will be displayed<br/>here","Le badge Google Trusted Stores sera affiché ici"
+"Google Trusted Stores account id is empty","L'identifiant du compte Google Trusted Stores est vide"
+"Google Trusted Stores badge can't be found!","Impossible de trouver la badge Google Trusted Stores!"
+"Google Trusted Stores badge implemented!","Le badge Google Trusted Stores est correctement implémenté!"
+"Google Trusted Stores badge implemented but some errors have been found!","Le badge Google Trusted Stores est implémenté mais comporte de erreurs!"
+"Google Trusted Stores confirmation module can't be found!","Le module de confirmation des commandes Google Trusted Stores n'a pas été trouvé!"
+"Google Trusted Stores confirmation module implemented!","Le module de confirmation des commandes Google Trusted Stores est correctement implémenté!"
+"Google Trusted Stores doesn't seem to be implemented!","Google Trusted Stores ne semble pas être implémenté!"
+
+
+"System / Config / Google Trusted Stores",""
+
+"License activation","Licence"
+"Extension version","Version de l'extension"
+"Activation key","Clé d'activation"
+"1- Fill this field with your activation key.","1- Renseignez ce champ avec votre clé d'activation."
+"Remote activation","Activation automatique"
+"2- Choose your activation method.\n[yes = automatic activation]\n[no = manual activation]","2- Choisissez votre méthode d'activation.<br/>[oui = Activation automatique]<br/>[non = Activation manuelle]"
+"Activation code","Code d'activation"
+"3 - Follow the instructions in the nofication.\nThen fill this field with the license code you get.","3 - Suivez les intructions dans la notification.<br/>Ensuite remplissez le champ avec le code d'activation que vous obtenez."
+"Google Trusted Stores Account Id","Identifiant du compte Google Trusted Stores"
+""Fill this field with your google trusted stores id","Remplir ce champ avec votre identifiant Google Trusted Stores"
+"Fill this field with your google merchant id","Remplir ce champ avec votre identifiant Google Merchant"
+"Google Merchant Account Id","Identifiant du compte Google Merchant"
+"Country","Pays"
+"Language","Langue"
+"Trusted Stores Badge position","Position du badge Google Trusted Stores"
+"Trusted Stores Badge container style","Style du bloc html contenant le badge"
+"Google shopping products id template","Template pour la récupération des identifiants produit Google Shopping"
+"Orders confirmation page settings","Configuration de la page de confirmation des commandes"
+"Use Estimated Delivery Date module","Utilisez le module Estimated Delivery Date"
+"WHAT_IS_EDD","<a target='_blank' href='http://www.wyomind.com/fr/estimated-delivery-date-magento.html?utm_source=module&utm_medium=googlecustomerreviews&utm_campaign=estimateddeliverydate'>Qu'est ce que le module Estimated Delivery Date ?</a>"
+"Estimated delivery date offset","Jours supplémentaires pour la date de livraison estimée"
+"Estimated shipment date offset","Jours supplémentaires pour la date d'envoi estimée"
+"Days to add to the order date (default 0)","Nombre de jours à ajouter à la date de commande (défaut : 0)"
+"Days to add to the order date (default 0)","Nombre de jours à ajouter à la date de commande (défaut : 0)"
+"Testing and debugging tools (for developers only)","Outils de test et de débogage (uniquement pour les développeurs)"
+"Test badge code","Test du code du badge"
+"Test order confirmation page code","Test du code de la page de confirmation des commandes"

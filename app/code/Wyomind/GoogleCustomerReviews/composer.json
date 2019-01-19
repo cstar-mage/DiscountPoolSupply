@@ -1,0 +1,28 @@
+{
+    "name": "wyomind/googlecustomerreviews",
+    "version": "3.3.0.3",
+    "version_normalized": "3.3.0.3",
+    "dist": {
+        "type": "zip",
+        "url": "https://www.wyomind.com/wyomind-googlecustomerreviews-3.3.0.3.zip",
+        "reference": null
+    },
+    "require": {
+        "magento/framework": ">=100.0.0",
+        "php": ">=7.0.0",
+        "wyomind/core": ">=3.0.0"
+    },
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Wyomind\\GoogleCustomerReviews\\": ""
+        }
+    },
+    "license": [
+        "Commercial License - Copyright 2016  - WYOMIND Sarl - Purchasing any product (Software) from the Wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
+    ],
+    "description": "The Google Customer Reviews extension makes your life easier by automatically adding the codes to each page of your website in order to display the Google Customer Reviews badge and the Opt-in module in the order confirmation."
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © CyberSolutionsLLC. All rights reserved.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="rotate_stock" sortOrder="50">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Rotate Stock</label>
+        </settings>
+        <field name="rs_enabled" sortOrder="10" formElement="select">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Rotate Stock Enabled</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="CyberSolutionsLLC\RotateStock\Model\Source\RotateStockStatus"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="rs_reset_qty" sortOrder="15" formElement="input">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">New / Reset Qty</label>
+                <notice translate="true"><![CDATA[Leave empty to use global config.]]></notice>
+            </settings>
+        </field>
+        <field name="rs_min_qty_threshold" sortOrder="20" formElement="input">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Minimum Qty Threshold</label>
+                <notice translate="true"><![CDATA[Leave empty to use global config.]]></notice>
+            </settings>
+        </field>
+        <field name="rs_only_x_left" sortOrder="30" formElement="input">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Only X Left</label>
+                <notice translate="true"><![CDATA[Leave empty to use global config.]]></notice>
+            </settings>
+        </field>
+    </fieldset>
+</form>

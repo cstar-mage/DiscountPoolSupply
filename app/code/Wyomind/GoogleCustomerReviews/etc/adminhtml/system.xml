@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../../app/code/Magento/Config/etc/system_file.xsd">
+    
+    <system>
+        
+        <!-- master tab -->
+        
+        <tab id="wyomind" translate="label" sortOrder="1000000">
+            <label><![CDATA[<span class='wyomind-logo'>Wyomind</span>]]></label>
+        </tab>
+        
+            
+        <section id="googlecustomerreviews" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label><![CDATA[Google Customer Reviews<br/><div style='font-weight:normal;font-size:0.8em;'>(previously Google Trusted Stores)</div>]]></label>
+            <tab>wyomind</tab>
+            <resource>Wyomind_GoogleCustomerReviews::googlecustomerreviews_config</resource>
+            
+            <!-- License -->
+            
+            <group id="license" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>License activation</label>
+                <field id="extension_version" translate="label" type="link" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Extension version</label>
+                </field>
+                <field id="activation_key" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Activation key</label>
+                    <comment><![CDATA[<span class="notice">Enter your activation key and click on `save config`.</span>]]></comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <frontend_model>Wyomind\Core\Block\Adminhtml\System\Config\Form\Field\Encrypted</frontend_model>
+                </field>
+                <field id="activation_code" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Activation code</label>
+                    <comment><![CDATA[<span class="notice">Enter your license code <b>only if prompted<b>.</span>]]></comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <frontend_model>Wyomind\Core\Block\Adminhtml\System\Config\Form\Field\Encrypted</frontend_model>
+                </field>
+            </group>
+            
+            <group id="program" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Google Program</label>
+                <field id="program" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Program</label>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\GoogleProgram</source_model>
+                </field>
+            </group>
+            
+            <group id="badge" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Badge Settings</label>
+                
+                <!-- gcr -->
+                <field id="gcr_badge_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable badge</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                    </depends>
+                    <comment>If 'No', the badge will be hidden. Useful if there is no rating to display</comment>
+                </field>
+                <field id="gcr_merchant_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Merchant Id</label>
+                    <comment>Fill this field with your merchant id</comment>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                    </depends>
+                </field>
+                <field id="gcr_lang" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Language</label>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\Lang</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                    </depends>
+                </field>
+                
+                <!-- gts -->
+                <field id="gts_id" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Google Trusted Stores Account Id</label>
+                    <comment>Fill this field with your google trusted stores id</comment>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gts_gb_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Google Merchant Account Id</label>
+                    <comment>Fill this field with your google merchant id</comment>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gts_country" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gts_language" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Language</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gts_gs_product_id" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Google shopping products id</label>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\ProductIdentifier</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                
+                <!-- common -->
+                <field id="position" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Badge position</label>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\BadgePosition</source_model>
+                </field>
+                <field id="css" translate="label comment" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Badge container style</label>
+                    <comment>Css rules to apply to the container</comment>
+                    <depends>
+                        <field id="googlecustomerreviews/badge/position">USER_DEFINED</field>
+                    </depends>
+                </field>
+            </group>
+            
+            <group id="orders" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Orders confirmation page settings</label>
+                <field id="use_edd_module" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Use Estimated Delivery Date module</label>
+                    <comment>WHAT_IS_EDD</comment>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\UseEDD</source_model>
+                </field>
+                <field id="eta" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Estimated delivery date offset</label>
+                    <comment>Days to add to the order date (default 0)</comment>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="use_edd_module">0</field>
+                    </depends>
+                </field>
+                
+                <field id="gts_eta_ship" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Estimated shipment date offset</label>
+                    <comment>Days to add to the order date (default 0)</comment>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gcr_optin_style" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Opt-in style</label>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\OptinStyle</source_model>
+                </field>
+                <field id="gcr_optin_list_products" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>List products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                    </depends>
+                </field>
+                <field id="gcr_optin_gtin" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>GTIN</label>
+                    <source_model>Wyomind\GoogleCustomerReviews\Model\Config\Source\Identifier</source_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                        <field id="googlecustomerreviews/orders/gcr_optin_list_products">1</field>
+                    </depends>
+                </field>
+            </group>
+            
+            <group id="testing_tools" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Testing and debugging tools (for developers only)</label>
+                <field id="gts_test_badge" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test badge code</label>
+                    <frontend_model>Wyomind\GoogleCustomerReviews\Block\Adminhtml\System\Config\Form\Field\Gts\TestBadgeLink</frontend_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gts_test_order" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test order confirmation page code</label>
+                    <frontend_model>Wyomind\GoogleCustomerReviews\Block\Adminhtml\System\Config\Form\Field\Gts\TestOrderLink</frontend_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gts</field>
+                    </depends>
+                </field>
+                <field id="gcr_test_badge" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test badge code</label>
+                    <frontend_model>Wyomind\GoogleCustomerReviews\Block\Adminhtml\System\Config\Form\Field\Gcr\TestBadgeLink</frontend_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                    </depends>
+                </field>
+                <field id="gcr_test_order" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test Opt-in code</label>
+                    <frontend_model>Wyomind\GoogleCustomerReviews\Block\Adminhtml\System\Config\Form\Field\Gcr\TestOrderLink</frontend_model>
+                    <depends>
+                        <field id="googlecustomerreviews/program/program">gcr</field>
+                    </depends>
+                </field>
+            </group>
+            
+        </section>
+    </system>
+</config>

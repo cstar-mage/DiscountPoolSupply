@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <hideprice>
+            <display_config>
+                <hide_price>1</hide_price>
+                <hide_add_to_cart>1</hide_add_to_cart>
+                <hide_wishlist>1</hide_wishlist>
+                <hide_compare>1</hide_compare>
+                <button_add_to_cart_text>Contact Us</button_add_to_cart_text>
+                <button_add_to_cart_link>mailto:contact@store.com</button_add_to_cart_link>
+                <button_add_to_cart_target>_self</button_add_to_cart_target>
+                <button_price_text>Call For Price</button_price_text>
+                <button_price_link>/contact</button_price_link>
+                <button_price_target>_self</button_price_target>
+            </display_config>
+            <dev_config>
+                <selector_listing_add_to_cart><![CDATA[data-role="tocart-form"]]></selector_listing_add_to_cart>
+                <selector_listing_add_to_links><![CDATA[data-role="add-to-links"]]></selector_listing_add_to_links>
+                <selector_listing_wishlist><![CDATA[action towishlist]]></selector_listing_wishlist>
+                <selector_listing_compare><![CDATA[action tocompare]]></selector_listing_compare>
+                <block_product_add_to_cart>product.info.addtocart</block_product_add_to_cart>
+                <block_product_add_to_wishlist>view.addto.wishlist</block_product_add_to_wishlist>
+                <block_product_add_to_compare>view.addto.compare</block_product_add_to_compare>
+                <block_product_price>product.price.final,product.price.tier</block_product_price>
+            </dev_config>
+        </hideprice>
+    </default>
+</config>
+<!--
+/**
+ * Product:       Xtento_HidePrice (1.0.2)
+ * ID:            nwkgCoSUq+AYqPyK726YGWS2gaWLfPrdiRDDNmMBqtI=
+ * Packaged:      2018-01-24T17:02:31+00:00
+ * Last Modified: 2017-09-12T20:21:08+00:00
+ * File:          app/code/Xtento/HidePrice/etc/config.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

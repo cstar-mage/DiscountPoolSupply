@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Wyomind_GoogleCustomerReviews::css/system.css"/>
+        <link src="Wyomind_GoogleCustomerReviews::js/system.js"/>
+        <css src="Wyomind_Core::js/codemirror/codemirror.css"/>
+        <link src="Wyomind_Core::js/codemirror/codemirror.js"/>
+        <link src="Wyomind_Core::js/codemirror/formatting.js"/>
+        <link src="Wyomind_Core::js/codemirror/active-line.js"/>
+        <link src="Wyomind_Core::js/codemirror/matchbrackets.js"/>
+        <link src="Wyomind_Core::js/codemirror/htmlmixed/htmlmixed.js"/>
+        <link src="Wyomind_Core::js/codemirror/xml/xml.js"/>
+        <link src="Wyomind_Core::js/codemirror/javascript/javascript.js"/>
+        <link src="Wyomind_Core::js/codemirror/css/css.js"/>
+        <link src="Wyomind_Core::js/codemirror/clike/clike.js"/>
+        <link src="Wyomind_Core::js/codemirror/php/php.js"/>
+    </head>
+    <body/>
+</page>

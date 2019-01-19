@@ -1,0 +1,16 @@
+<div class="box-tocart">
+    <div class="fieldset">
+        <div class="actions">
+            <?php $image = $this->getButtonImage(); ?>
+            <?php if ($image): ?>
+                <a title="<?php echo $block->escapeHtml($this->getButtonLabel()) ?>" href="<?php echo $block->escapeHtml($this->getButtonUrl()) ?>" target="<?php echo $block->escapeHtml($this->getButtonTarget()) ?>" class="xtento-hideprice-<?php echo $this->getData('type') ?>-button" style="<?php echo $block->escapeHtml($this->getButtonCss()) ?>">
+                    <img src="<?php echo $image ?>" alt="<?php echo $block->escapeHtml($this->getButtonLabel()) ?>"/>
+                </a>
+            <?php else: ?>
+                <a title="<?php echo $block->escapeHtml($this->getButtonLabel()) ?>" href="<?php echo $block->escapeHtml($this->getButtonUrl()) ?>" target="<?php echo $block->escapeHtml($this->getButtonTarget()) ?>" class="action primary xtento-hideprice-<?php echo $this->getData('type') ?>-button" style="<?php echo $block->escapeHtml($this->getButtonCss()) ?>">
+                    <span><?php echo $block->escapeHtml($this->getButtonLabel()) ?></span>
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>

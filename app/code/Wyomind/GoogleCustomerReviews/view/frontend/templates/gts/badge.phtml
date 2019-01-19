@@ -1,0 +1,56 @@
+<!-- Trusted stores script -->
+<script type="text/javascript">
+<?php
+if ($block->isFrontendTest()) :
+    ?>
+    if (!typeof GtsValidator !== "undefined") {
+        GtsValidator.badge = true;
+    }
+    <?php
+endif;
+?>
+    var gts = gts || [];
+    gts.push(["id", "<?php echo $block->getId(); ?>"]);
+<?php
+if ($block->getPosition() == "USER_DEFINED") :
+    ?>
+    gts.push(["badge_position", "USER_DEFINED"]);
+    gts.push(["badge_container", "gts_container"]);
+    <?php
+else:
+    ?>
+    gts.push(["badge_position", "<?php echo $block->getPosition(); ?>"]);
+    <?php
+endif;
+?>
+    gts.push(["google_base_offer_id", "<?php echo $block->getProductId(); ?>"]);
+    gts.push(["locale", "<?php echo $block->getLanguage(); ?>"]);
+    gts.push(["google_base_subaccount_id", "<?php echo $block->getGbId(); ?>"]);
+    gts.push(["google_base_country", "<?php echo $block->getCountry(); ?>"]);
+    gts.push(["google_base_language", "<?php echo substr($block->getLanguage(), 0, 2); ?>"]);
+
+    (function () {
+        var gts = document.createElement("script");
+        gts.type = "text/javascript";
+        gts.async = true;
+        gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(gts, s);
+    })();
+</script>
+<?php
+if ($block->getPosition() == "USER_DEFINED") :
+    ?>
+<style>
+    div#gts_container { <?php echo str_replace(["\r\n", "\r", "\n"], "", $block->getCss()); ?> }
+</style>
+<div id="gts_container"></div>
+    <?php
+endif;
+?>
+<?php
+if ($block->isFrontendTest()) :
+    ?>
+<div id="gts_container"></div>
+    <?php
+endif;

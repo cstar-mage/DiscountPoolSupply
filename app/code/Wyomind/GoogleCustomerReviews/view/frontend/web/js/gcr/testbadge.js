@@ -1,0 +1,1 @@
+GcrValidator = {badge:false};

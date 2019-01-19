@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CyberSolutionsLLC. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\CatalogSearch\Controller\Result\Index" type="CyberSolutionsLLC\LayeredNavigation\Controller\Search\Result\Index"/>
+    <preference for="Mageplaza\LayeredNavigation\Controller\Search\Result\Index" type="CyberSolutionsLLC\LayeredNavigation\Controller\Search\Result\Index"/>
+</config>

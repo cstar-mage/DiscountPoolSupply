@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CyberSolutionsLLC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cataloginventory>
+            <rotate_stock>
+                <enabled>0</enabled>
+                <min_qty_threshold>1</min_qty_threshold>
+                <reset_qty>3</reset_qty>
+                <only_x_left>3</only_x_left>
+                <only_x_left_message><![CDATA[Only {X} Left in Stock]]></only_x_left_message>
+            </rotate_stock>
+        </cataloginventory>
+    </default>
+</config>

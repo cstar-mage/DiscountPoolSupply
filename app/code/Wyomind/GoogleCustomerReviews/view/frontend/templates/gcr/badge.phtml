@@ -1,0 +1,43 @@
+<?php if ($block->isFrontendTest()) : ?>
+    <script type="text/javascript">
+        if (typeof GcrValidator != 'undefined')
+            GcrValidator.badge = true;
+    </script>
+<?php endif; ?>
+
+<!--BEGIN GCR Badge Code -->
+<script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
+</script>
+
+<script>
+    window.renderBadge = function () {
+        var ratingBadgeContainer = document.createElement("div");
+        document.body.appendChild(ratingBadgeContainer);
+        window.gapi.load('ratingbadge', function () {
+            window.gapi.ratingbadge.render(
+                    ratingBadgeContainer, {
+                        "merchant_id": "<?php echo $block->getMerchantId(); ?>",
+                        "position": "<?php echo $block->getPosition(); ?>"
+                    });
+        });
+    }
+</script>
+<!-- END GCR Badge Code -->
+<!-- BEGIN GCR Language Code -->
+<script>
+    window.___gcfg = {
+        lang: "<?php echo $block->getLang(); ?>"
+    };
+</script>
+<!-- END GCR Language Code -->
+
+<?php if ($block->getPosition() == "USER_DEFINED") { ?>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>​
+    <style>
+        div#gcr_container { <?php echo str_replace(array("\r\n", "\r", "\n"), "", $block->getCss()); ?> }
+    </style>
+    <g:ratingbadge id="gcr_container" merchant_id="<?php echo $block->getMerchantId(); ?>"></g:ratingbadge>​
+    <?php
+}
+
+

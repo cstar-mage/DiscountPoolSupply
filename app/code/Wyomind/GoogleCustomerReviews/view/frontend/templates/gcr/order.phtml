@@ -1,0 +1,48 @@
+<?php if ($block->getOrder()) : ?>
+    <?php
+    if ($block->isFrontendTest()) :
+        ?>
+        <script language="javascript" language="text/javascript"  >
+            if (typeof GcrValidator != 'undefined')
+                GcrValidator.order = true;
+        </script>
+        <?php
+    endif;
+    ?>
+
+    <!-- BEGIN GCR Opt-in Module Code -->
+    <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer>
+    </script>
+
+    <script>
+        window.renderOptIn = function () {
+            window.gapi.load('surveyoptin', function () {
+                window.gapi.surveyoptin.render(
+                    {
+                        "merchant_id": "<?php echo $block->getMerchantId(); ?>",
+                        "order_id": "<?php echo $block->getOrderId(); ?>",
+                        "email": "<?php echo $block->getEmail(); ?>",
+                        "delivery_country": "<?php echo $block->getCountry(); ?>",
+                        "estimated_delivery_date": "<?php echo $block->getDeliveryDate(); ?>",
+                        // OPTIONAL
+                        "opt_in_style": "<?php echo $block->getOptinStyle(); ?>"<?php if ($block->getListProducts() && count($block->getGtins())): ?>,
+                        "products": <?php echo json_encode($block->getGtins()); ?>
+<?php endif; ?>
+    
+                        }
+                );
+            });
+        }
+    </script>
+    <!-- END GCR Opt-in Module Code -->
+
+    <!-- BEGIN GCR Language Code -->
+    <script>
+        window.___gcfg = {
+            lang: '<?php echo $block->getLang(); ?>'
+        };
+    </script>
+    <!-- END GCR Language Code -->
+    <?php
+
+endif;

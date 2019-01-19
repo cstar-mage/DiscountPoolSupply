@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Wyomind_GoogleCustomerReviews::css/validator.css"/>
+        <link src="Wyomind_GoogleCustomerReviews::js/gcr/testbadge.js"/>
+        <link src="Wyomind_GoogleCustomerReviews::js/gcr/validator.js"/>
+    </head>
+    
+    <update handle="default"/>
+    
+    <!-- translation -->
+    <referenceContainer name="after.body.start">
+        <block class="Magento\Framework\View\Element\Template" name="js_translate" as="js_translate" template="Wyomind_GoogleCustomerReviews::translate.phtml"/>
+    </referenceContainer>
+    
+</page>

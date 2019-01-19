@@ -1,0 +1,1 @@
+Magento 2 Facebook Like Discount module will reward your customers with a discount for a Facebook like of any page you want to promote. Once the “Like” button is clicked - the customers will receive an automatic discount for their order.

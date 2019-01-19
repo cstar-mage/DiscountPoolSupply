@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © CyberSolutionsLLC. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+
+use CyberSolutionsLLC\RotateStock\Helper\Config as ConfigHelper;
+
+/**
+ * @var $block \CyberSolutionsLLC\RotateStock\Block\RotateStock
+ */
+?>
+<?php
+	$_configHelper = $this->helper(ConfigHelper::class);
+	if ($_product = $block->getProduct()) {
+		$_rotateConfig = $_configHelper->getRotateConfigForProduct($_product);
+		if (!empty($_rotateConfig['enabled'])) {
+			$rorateMessage = str_replace(
+				ConfigHelper::PLACEHOLDER_ONLY_X_LEFT,
+				'<span class="rotate-stock-only-x-left">' . $_rotateConfig['only_x_left'] . '</span>',
+				$_rotateConfig['only_x_left_message']
+			);
+		}
+	}
+?>
+<?php if (!empty($rorateMessage)): ?>
+<div class="product-info-rotatestock rotate-stock">
+	<div class="rotate-stock-message">
+		<?= /* @escapeNotVerified */ $rorateMessage ?>
+	</div>
+</div>
+<?php endif; ?>

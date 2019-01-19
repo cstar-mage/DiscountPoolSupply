@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var \Magento\Theme\Block\Html\Breadcrumbs $block */
+/** @var \Magento\Catalog\ViewModel\Product\Breadcrumbs $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$_optionsJson = json_encode([
+	'categoryUrlSuffix' => $block->escapeHtml($viewModel->getCategoryUrlSuffix()),
+	'useCategoryPathInUrl' => (int)$viewModel->isCategoryUsedInProductUrl(),
+	'product' => $viewModel->getProductName(),
+]);
+
+?>
+<div class="breadcrumbs" data-mage-init='{
+    "breadcrumbs": <?= $block->escapeQuote($_optionsJson) ?>
+}'>
+</div>

@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!--
+/**
+* Plumrocket Inc.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the End-user License Agreement
+* that is available through the world-wide-web at this URL:
+* http://wiki.plumrocket.net/wiki/EULA
+* If you are unable to obtain it through the world-wide-web, please
+* send an email to support@plumrocket.com so we can send you a copy immediately.
+*
+* @package Plumrocket_Facebook_Discount
+* @copyright Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+* @license http://wiki.plumrocket.net/wiki/EULA End-user License Agreement
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="facebookdiscount" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="3074961" translate="label">
+            <label>Facebook Discount</label>
+            <tab>plumrocket</tab>
+            <resource>Plumrocket_Facebookdiscount::config</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+                <field id="version" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <frontend_model>Plumrocket\Facebookdiscount\Block\Adminhtml\System\Config\Form\Version</frontend_model>
+                </field>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="serial" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Serial Key</label>
+                    <frontend_model>Plumrocket\Base\Block\Adminhtml\System\Config\Form\Serial</frontend_model>
+                    <comment><![CDATA[
+                        Your can find <strong>Serial Key</strong> in your account at <a target="_blank" href="https://store.plumrocket.com/downloadable/customer/products/">store.plumrocket.com</a>. For manual <a target="_blank" href="http://wiki.plumrocket.com/wiki/License_Installation">click here</a>.
+                    ]]></comment>
+                    <hint>Facebookdiscount</hint>
+                </field>
+                <field id="app_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+                    <label>Facebook App ID</label>
+                    <comment><![CDATA[For information about how to obtain Facebook App ID, please <a target="_blank" href="http://wiki.plumrocket.com/wiki/Magento_Facebook_Login_Configuration">click here</a>.]]></comment>
+                </field>
+                <field id="verify_token" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+                    <frontend_model>Plumrocket\Facebookdiscount\Block\Adminhtml\System\Config\Form\Verifytoken</frontend_model>
+                    <label>Webhook Verify Token</label>
+                </field>
+                <field id="callback_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
+                    <frontend_model>Plumrocket\Facebookdiscount\Block\Adminhtml\System\Config\Form\Callbackurl</frontend_model>
+                    <label>Your Callback Url</label>
+                </field>
+                <field id="page_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="text">
+                    <label>Page Url</label>
+                    <comment><![CDATA[Any URL (your website page url, facebook page, etc) the user will "Like" after clicking on the Facebook Like button.]]></comment>
+                </field>
+                <field id="discount_type" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="select">
+                    <label>Discount Type</label>
+                    <source_model>Plumrocket\Facebookdiscount\Model\Adminhtml\System\Config\Form\DiscountType</source_model>
+                </field>
+                <field id="fixed_discount" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+                    <label>Fixed Discount Amount</label>
+                    <frontend_model>Plumrocket\Facebookdiscount\Block\Adminhtml\System\Config\Form\Discount</frontend_model>
+                    <comment><![CDATA[The discount amount in "%currency%"]]></comment>
+                    <depends>
+                        <field id="discount_type">0</field>
+                    </depends>
+                </field>
+                <field id="percent_discount" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="text">
+                    <label>Percent Discount Amount</label>
+                    <comment><![CDATA[The discount amount in "%"]]></comment>
+                    <depends>
+                        <field id="discount_type">1</field>
+                    </depends>
+                </field>
+                <field id="message" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="textarea">
+                    <label>Thank You Message</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

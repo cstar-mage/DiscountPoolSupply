@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Xtento_HidePrice" setup_version="1.0.2">
+        <sequence>
+            <module name="Xtento_XtCore"/>
+            <module name="Magento_Catalog"/>
+            <module name="Magento_CatalogSearch"/>
+        </sequence>
+    </module>
+</config>
+<!--
+/**
+ * Product:       Xtento_HidePrice (1.0.2)
+ * ID:            nwkgCoSUq+AYqPyK726YGWS2gaWLfPrdiRDDNmMBqtI=
+ * Packaged:      2018-01-24T17:02:31+00:00
+ * Last Modified: 2017-12-13T20:51:32+00:00
+ * File:          app/code/Xtento/HidePrice/etc/module.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

@@ -1,0 +1,70 @@
+"./Block/Adminhtml/System/Config/Form/Field/TestBadgeLink.php",""
+
+"Go","Go"
+"Product sku","Product sku"
+
+
+"./Block/Adminhtml/System/Config/Form/Field/TestOrderLink.php",""
+
+"Go","Go"
+"Order number","Order number"
+
+
+"./Controller/Devtools/Testbadge.php",""
+
+"No product to load","No product to load"
+
+
+"./Controller/Devtools/Testorder.php",""
+
+"No order to load","No order to load"
+
+
+"./Model/Config/Source/UseEDD.php",""
+
+"No","No"
+"Yes","Yes"
+
+
+"./view/frontend/web/js/validator.js",""
+
+"Country is empty","Country is empty"
+"Google Trusted Badge will be displayed<br/>here","Google Trusted Badge will be displayed<br/>here"
+"Google Trusted Stores account id is empty","Google Trusted Stores account id is empty"
+"Google Trusted Stores badge can't be found!","Google Trusted Stores badge can't be found!"
+"Google Trusted Stores badge implemented!","Google Trusted Stores badge implemented!"
+"Google Trusted Stores badge implemented but some errors have been found!","Google Trusted Stores badge implemented but some errors have been found!"
+"Google Trusted Stores confirmation module can't be found!","Google Trusted Stores confirmation module can't be found!"
+"Google Trusted Stores confirmation module implemented!","Google Trusted Stores confirmation module implemented!"
+"Google Trusted Stores doesn't seem to be implemented!","Google Trusted Stores doesn't seem to be implemented!"
+
+
+"System / Config / Google Trusted Stores",""
+
+"License activation","License activation"
+"Extension version","Extension version"
+"Activation key","Activation key"
+"1- Fill this field with your activation key.","1- Fill this field with your activation key."
+"Remote activation","Remote activation"
+"2- Choose your activation method.\n[yes = automatic activation]\n[no = manual activation]","2- Choose your activation method.\n[yes = automatic activation]\n[no = manual activation]"
+"Activation code","Activation code"
+"3 - Follow the instructions in the nofication.\nThen fill this field with the license code you get.","3 - Follow the instructions in the nofication.\nThen fill this field with the license code you get."
+"Google Trusted Stores Account Id","Google Trusted Stores Account Id"
+"Fill this field with your google trusted stores id","Fill this field with your google trusted stores id"
+"Google Merchant Account Id","Google Merchant Account Id"
+"Fill this field with your google merchant id","Fill this field with your google merchant id"
+"Country","Country"
+"Language","Language"
+"Trusted Stores Badge position","Trusted Stores Badge position"
+"Trusted Stores Badge container style","Trusted Stores Badge container style"
+"Google shopping products id template","Google shopping products id template"
+"Orders confirmation page settings","Orders confirmation page settings"
+"Use Estimated Delivery Date module","Use Estimated Delivery Date module"
+"WHAT_IS_EDD","<a target='_blank' href='http://www.wyomind.com/estimated-delivery-date-magento.html?utm_source=module&utm_medium=googlecustomerreviews&utm_campaign=estimateddeliverydate'>What is Estimated Delivery Date module ?</a>"
+"Estimated delivery date offset","Estimated delivery date offset"
+"Estimated shipment date offset","Estimated shipment date offset"
+"Days to add to the order date (default 0)","Days to add to the order date (default 0)"
+"Days to add to the order date (default 0)","Days to add to the order date (default 0)"
+"Testing and debugging tools (for developers only)","Testing and debugging tools (for developers only)"
+"Test badge code","Test badge code"
+"Test order confirmation page code","Test order confirmation page code"

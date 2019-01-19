@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CyberSolutionsLLC. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/catalog_attributes.xsd">
+    <group name="catalog_category">
+        <attribute name="rs_enabled"/>
+        <attribute name="rs_reset_qty"/>
+        <attribute name="rs_min_qty_threshold"/>
+        <attribute name="rs_only_x_left"/>
+    </group>
+    <group name="catalog_product">
+        <attribute name="rs_enabled"/>
+        <attribute name="rs_reset_qty"/>
+        <attribute name="rs_min_qty_threshold"/>
+        <attribute name="rs_only_x_left"/>
+    </group>
+</config>

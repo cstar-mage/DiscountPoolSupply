@@ -1,0 +1,33 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Amp
+ * @copyright   Copyright (c) 2016 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<?php
+	$_helperCart = $this->helper('Magento\Checkout\Helper\Cart');
+	$_cartSummaryQty = $_helperCart->getSummaryCount();
+?>
+<div class="right-top-btn">
+	<?php if ($this->helper('Plumrocket\Amp\Helper\Data')->isSearchEnabled()) : ?>
+		<a href="<?php echo $this->getUrl("pramp/search/index", ['amp' => 1]) ?>" class="icon search-icon"></a>
+	<?php endif; ?>
+	<?php echo $block->getChildHtml('amp-authorization-link-login') ?>
+	<a href="<?php echo $_helperCart->getCartUrl() ?>" class="icon cart">
+		<?php if ($_cartSummaryQty) : ?>
+			<span id="cart-summary-qty" class="count"><?php echo $_cartSummaryQty ?></span>
+		<?php endif; ?>
+	</a>
+</div>

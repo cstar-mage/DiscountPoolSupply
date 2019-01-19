@@ -1,0 +1,1 @@
+GtsValidator = {badge:false};

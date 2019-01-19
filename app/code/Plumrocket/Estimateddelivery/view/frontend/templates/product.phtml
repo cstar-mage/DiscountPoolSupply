@@ -1,0 +1,66 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2016 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<?php if ($block->canShow()) { ?>
+<div class="estimated-hld-<?php echo $this->getShowPosition() ?> estimated-hld">
+
+<?php if ($block->hasShippingDate()) { ?>
+<div class="estimated-box estimated-product estimated-shipping">
+    <p class="price-margin">
+        <strong class="estimated-title"><?php echo __('Estimated Shipping Date') ?></strong>
+        <br>
+        <span class="estimated-price">
+            <?php
+            if ($block->formatShippingDate() == 'date') {
+                echo $block->specialFormatDate($block->getShippingFromTime());
+                if ($block->getShippingToTime() && ($block->getShippingToTime() != $block->getShippingFromTime())) {
+                     echo ' - ' . $block->specialFormatDate($block->getShippingToTime());
+                }
+            } else {
+                echo $block->getShippingText();
+            }
+            ?>
+        </span>
+    </p>
+</div>
+<?php } ?>
+
+<?php if ($block->hasDeliveryDate()) { ?>
+<div class="estimated-box estimated-product estimated-delivery">
+    <p class="price-margin">
+        <strong class="estimated-title"><?php echo __('Estimated Delivery Date') ?></strong>
+        <br>
+        <span class="estimated-price">
+            <?php
+            if ($block->formatDeliveryDate() == 'date') {
+                echo $block->specialFormatDate($block->getDeliveryFromTime());
+
+                if ($block->getDeliveryToTime() && ($block->getDeliveryToTime() != $block->getDeliveryFromTime())) {
+                     echo ' - ' . $block->specialFormatDate($block->getDeliveryToTime());
+                }
+            } else {
+                echo $block->getDeliveryText();
+            }
+            ?>
+        </span>
+    </p>
+</div>
+<?php } ?>
+
+</div>
+<?php } ?>

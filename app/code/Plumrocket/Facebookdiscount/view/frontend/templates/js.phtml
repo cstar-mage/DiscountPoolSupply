@@ -1,0 +1,45 @@
+<?php
+/**
+* Plumrocket Inc.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the End-user License Agreement
+* that is available through the world-wide-web at this URL:
+* http://wiki.plumrocket.net/wiki/EULA
+* If you are unable to obtain it through the world-wide-web, please
+* send an email to support@plumrocket.com so we can send you a copy immediately.
+*
+* @package Plumrocket_Facebook_Discount
+* @copyright Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+* @license http://wiki.plumrocket.net/wiki/EULA End-user License Agreement
+*/
+?>
+
+<div id="fb-root" style="width: 100%;"></div>
+<script>
+var plumrocketFbLDConfig = <?php echo $this->getConfig(); ?>;
+requirejs(
+    [
+        'jquery',
+        'Plumrocket_Facebookdiscount/js/discount',
+        'Plumrocket_Facebookdiscount/js/iframetracker'
+    ],
+    function($){
+        window.plFacebookDiscount = new window._plFacebookDiscount(plumrocketFbLDConfig);
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=<?php echo $block->escapeHtml($this->getApiKey()); ?>";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $(document).ajaxComplete(function() {
+            FB.XFBML.parse();
+        });
+
+    }
+);
+</script>

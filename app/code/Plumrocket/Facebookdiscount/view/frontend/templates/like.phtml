@@ -1,0 +1,40 @@
+<?php
+/**
+* Plumrocket Inc.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the End-user License Agreement
+* that is available through the world-wide-web at this URL:
+* http://wiki.plumrocket.net/wiki/EULA
+* If you are unable to obtain it through the world-wide-web, please
+* send an email to support@plumrocket.com so we can send you a copy immediately.
+*
+* @package Plumrocket_Facebook_Discount
+* @copyright Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+* @license http://wiki.plumrocket.net/wiki/EULA End-user License Agreement
+*/
+?>
+<div class="fb_discount_holder bf-clear">
+    <div class="fb-discount-wrapper bf-clear">
+        <script type="text/javascript">
+            requirejs(['Plumrocket_Facebookdiscount/js/discount'], function(){
+                window.plFacebookDiscount.plumrocketFacebookDiscountFunction('<?php echo $block->getApiKey(); ?>');
+                window.plFacebookDiscount.plumrocketFacebookDiscountQueue('<?php echo $block->getQueueUrl(); ?>');
+            });
+        </script>
+
+        <table>
+            <tr>
+                <td class="fbd_message">
+                    <div class="fb-discount-r1"><?php echo __('Like Us &'); ?></div>
+                    <div class="fb-discount-r2"><?php echo __('Get ' .  str_replace('.00', '', $block->getDiscountAmount()) . ' OFF'); ?></div>
+                    <div class="fb-discount-r3"><?php echo __('<span class="fb-discount-order">your order</span> instantly'); ?></div>
+                </td>
+                <td class="fbd_message_wrapper">
+                    <div class="fb-like" data-href="<?php echo $block->getPageUrl(); ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
