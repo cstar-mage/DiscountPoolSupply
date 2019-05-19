@@ -1,0 +1,18 @@
+{
+    "name": "cybersolutionsllc/toronto-shipping",
+    "description": "CyberSolutionsLLC TorontoShipping",
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CyberSolutionsLLC\\TorontoShipping\\": ""
+        }
+    }
+}
